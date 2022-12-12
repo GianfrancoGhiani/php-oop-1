@@ -1,4 +1,5 @@
 <?php
+//simply a movie list with the required values
 $movies = [
     [
         'name'=>'Pinocchio',

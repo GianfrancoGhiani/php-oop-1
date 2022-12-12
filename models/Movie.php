@@ -14,9 +14,12 @@ class Movie
 
     }
     public function getMinutes(){
-        list($hour, $min) = explode(':', $this->duration);
-        $hour = intval($hour);
-        $totalMinutes = ($hour * 60) + (intval($min));
+        //pick the duration time, explode it into 2 string var called hours and min by dividing at the ':' point
+        list($hours, $min) = explode(':', $this->duration);
+        //turn hours into a int value
+        $hours = intval($hours);
+        //convert hours and add these to minl, return it
+        $totalMinutes = ($hours * 60) + (intval($min));
         return $totalMinutes;
     }
 };
