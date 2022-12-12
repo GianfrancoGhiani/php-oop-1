@@ -1,9 +1,11 @@
 <?php
 include(__DIR__ . '/models/Movie.php');
+include(__DIR__ . '/db.php');
 
-$movie1= new Movie('Nope', '1:30',  'en', ['thriller', 'horror']);
-$movie2= new Movie('Pinocchio', '2:45',  'it', ['Fantasy']);
 
-var_dump($movie1, $movie2);
-echo 'Il film '. $movie1->name . ' ha una durata di ' .$movie1->getMinutes().' minuti';
-echo '<br>Il film '. $movie2->name . ' ha una durata di ' .$movie2->getMinutes().' minuti';
+
+foreach($movies as $key => $value){
+    ${'movie' . $key} = new Movie($value['name'], $value['duration'], $value['lang'], $value['genres']);
+    var_dump(${'movie' . $key});
+    echo 'Il film ' . ${'movie' . $key}->name . ' ha una durata di ' . ${'movie' . $key}->getMinutes() . ' minuti';
+}
